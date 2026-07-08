@@ -1,88 +1,101 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaTrophy, FaCertificate, FaCode } from "react-icons/fa";
+import { FaTrophy, FaCertificate } from "react-icons/fa";
+
+interface ExperienceItem {
+  icon: React.ReactNode;
+  title: string;
+  organization: string;
+  date: string;
+  description: string;
+}
 
 export default function Experience() {
-  const experiences = [
+  const experiences: ExperienceItem[] = [
     {
-      icon: <FaTrophy className="text-yellow-400" />,
+      icon: <FaTrophy className="text-[#ff2a2a] text-lg" />,
       title: "Winner – Hackathon",
       organization: "IILM University",
       date: "Feb 2025",
-      description: "Secured first place by developing an innovative project prototype within a rigorous 24-hour time constraint, showcasing excellent technical and teamwork skills."
+      description: "Secured first place by architecting and developing an innovative web service prototype within a rigorous 24-hour time constraint, demonstrating strong technical execution and team coordination.",
     },
     {
-      icon: <FaTrophy className="text-orange-400" />,
+      icon: <FaTrophy className="text-[#ff2a2a] text-lg" />,
       title: "Second Runner-Up – Hackathon",
       organization: "Tula's Institute",
       date: "Sept 2025",
-      description: "Participated and achieved the second runner-up position, successfully integrating and presenting a robust software solution."
+      description: "Participated and achieved the second runner-up position, successfully integrating complex APIs and presenting a robust software MVP to the evaluation panel.",
     },
     {
-      icon: <FaTrophy className="text-blue-400" />,
+      icon: <FaTrophy className="text-[#ff2a2a] text-lg" />,
       title: "Data Science Hackathon Participant",
       organization: "IIT Bhubaneswar - Pravaah'26",
       date: "2026",
-      description: "Competed in an intense data science hackathon, applying machine learning models to solve real-world problems and collaborating with talented developers."
+      description: "Competed in an intense data science hackathon, applying classification machine learning models to solve real-world dataset problems and collaborating with fellow developers.",
     },
     {
-      icon: <FaCertificate className="text-purple-400" />,
+      icon: <FaCertificate className="text-[#ff2a2a] text-lg" />,
       title: "Multiple Hackathon Participations",
-      organization: "Various Tech Events",
+      organization: "Various Regional Tech Events",
       date: "2025 - Present",
-      description: "Earned several participation certificates across regional and national hackathons, continuously challenging myself to build MVPs within 24-48 hours."
-    }
+      description: "Earned several achievements across regional and national hackathons, consistently designing and launching responsive products within short 24-48 hour hack sprints.",
+    },
   ];
 
   return (
-    <section id="experience" className="py-24 relative bg-black/20">
-      <div className="container mx-auto px-6 max-w-4xl">
+    <section id="experience" className="py-24 relative overflow-hidden bg-black text-white border-t border-white/5">
+      {/* Ambient background glows */}
+      <div className="absolute top-[20%] left-[-10%] w-[300px] h-[300px] bg-[#ff2a2a]/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 max-w-4xl relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-left mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Experience & <span className="text-gradient">Achievements</span></h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-[#ff2a2a] mb-2">05 . Milestones</h2>
+          <h3 className="text-4xl md:text-5xl font-black text-white">
+            Experience & <span className="text-gradient">Achievements</span>
+          </h3>
+          <div className="w-12 h-1 bg-[#ff2a2a] mt-4 rounded-full"></div>
         </motion.div>
 
-        <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
-          {experiences.map((exp, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ x: 10 }}
+        <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12">
+          {experiences.map((exp, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active cursor-pointer"
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="relative pl-8 md:pl-10 group"
             >
-              {/* Icon */}
-              <motion.div 
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-gray-900 glass-card shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-[0_0_15px_rgba(59,130,246,0.2)]"
-              >
+              {/* Timeline dot with icon */}
+              <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border border-white/10 bg-black flex items-center justify-center group-hover:border-[#ff2a2a] group-hover:bg-[#ff2a2a]/10 transition-all duration-300">
                 {exp.icon}
-              </motion.div>
-              
-              {/* Card */}
-              <motion.div 
-                whileHover={{ scale: 1.03, boxShadow: "0px 0px 30px rgba(139, 92, 246, 0.2)" }}
-                className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 md:p-8 rounded-2xl hover:border-blue-500/30 transition-all border border-transparent"
-              >
-                <div className="flex flex-col md:flex-row justify-between mb-2 gap-2">
-                  <h3 className="font-bold text-xl text-white">{exp.title}</h3>
-                  <span className="text-sm font-medium text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full whitespace-nowrap w-fit">{exp.date}</span>
+              </div>
+
+              {/* Card Container */}
+              <div className="glass-card p-6 md:p-8 border border-white/10 rounded-2xl bg-white/[0.01] group-hover:border-[#ff2a2a]/20 transition-all cursor-pointer">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
+                  <div>
+                    <h4 className="font-bold text-white text-xl group-hover:text-[#ff2a2a] transition-colors duration-300">
+                      {exp.title}
+                    </h4>
+                    <span className="text-[#ff2a2a] text-sm font-medium">{exp.organization}</span>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-semibold w-fit uppercase tracking-wider">
+                    {exp.date}
+                  </span>
                 </div>
-                <h4 className="text-purple-300 font-medium mb-4">{exp.organization}</h4>
+                
                 <p className="text-gray-400 text-sm md:text-base leading-relaxed">
                   {exp.description}
                 </p>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </div>

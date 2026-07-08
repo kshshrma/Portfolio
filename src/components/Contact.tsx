@@ -5,155 +5,172 @@ import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 import { useState } from "react";
 
 export default function Contact() {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [consent, setConsent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:ks2012150@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+    const fullName = `${firstName} ${lastName}`.trim();
+    const mailtoLink = `mailto:ks2012150@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(fullName)}&body=Name: ${encodeURIComponent(fullName)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AConsent: ${consent ? 'Yes' : 'No'}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
     window.location.href = mailtoLink;
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+    <section id="contact" className="py-24 relative overflow-hidden bg-black text-white border-t border-white/5">
+      {/* Background radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl bg-[#ff2a2a]/5 rounded-full blur-[150px] pointer-events-none" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-left mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's <span className="text-gradient">Connect</span></h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-400 max-w-lg mx-auto">
-            Looking for opportunities in software/app development and AI. Feel free to reach out to me!
-          </p>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-[#ff2a2a] mb-2">08 . Connection</h2>
+          <h3 className="text-4xl md:text-5xl font-black text-white">
+            Let's <span className="text-gradient">Connect</span>
+          </h3>
+          <div className="w-12 h-1 bg-[#ff2a2a] mt-4 rounded-full"></div>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row gap-12 max-w-5xl mx-auto">
-          {/* Contact Info */}
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
+          {/* Contact Info (Left Column) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex-1 space-y-6"
+            className="flex-1 w-full space-y-6"
           >
-            <motion.a 
+            <h4 className="font-bold text-white text-xl mb-6">Contact Channels</h4>
+            
+            <a 
               href="mailto:ks2012150@gmail.com" 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ scale: 1.03, x: 5 }}
-              whileTap={{ scale: 0.97 }}
-              className="glass-card p-6 flex items-center gap-6 hover:border-blue-500/50 transition-colors group cursor-pointer block"
+              className="glass-card p-6 flex items-center gap-6 hover:border-[#ff2a2a]/30 bg-white/[0.01] transition-all group cursor-pointer block border border-white/10 rounded-2xl"
             >
-              <div className="w-14 h-14 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 text-2xl group-hover:rotate-12 transition-transform">
+              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#ff2a2a] text-xl group-hover:bg-[#ff2a2a]/10 group-hover:border-[#ff2a2a] transition-all">
                 <FaEnvelope />
               </div>
               <div className="overflow-hidden">
-                <h3 className="text-gray-400 text-sm">Email Me</h3>
-                <p className="text-white font-medium md:text-lg text-sm truncate w-full">ks2012150@gmail.com</p>
+                <h5 className="text-gray-400 text-xs uppercase tracking-wider font-semibold">Email</h5>
+                <p className="text-white font-medium text-sm md:text-base truncate">ks2012150@gmail.com</p>
               </div>
-            </motion.a>
+            </a>
             
-            <motion.a 
+            <a 
               href="https://www.linkedin.com/in/kashish-sharma-240939322/?skipRedirect=true" 
               target="_blank" 
               rel="noopener noreferrer" 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ scale: 1.03, x: 5 }}
-              whileTap={{ scale: 0.97 }}
-              className="glass-card p-6 flex items-center gap-6 hover:border-purple-500/50 transition-colors group cursor-pointer block"
+              className="glass-card p-6 flex items-center gap-6 hover:border-[#ff2a2a]/30 bg-white/[0.01] transition-all group cursor-pointer block border border-white/10 rounded-2xl"
             >
-              <div className="w-14 h-14 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 text-2xl group-hover:rotate-12 transition-transform">
+              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#ff2a2a] text-xl group-hover:bg-[#ff2a2a]/10 group-hover:border-[#ff2a2a] transition-all">
                 <FaLinkedin />
               </div>
               <div className="overflow-hidden">
-                <h3 className="text-gray-400 text-sm">LinkedIn</h3>
-                <p className="text-white font-medium md:text-lg text-sm truncate w-full">linkedin.com/in/kashish-sharma-240939322/</p>
+                <h5 className="text-gray-400 text-xs uppercase tracking-wider font-semibold">LinkedIn</h5>
+                <p className="text-white font-medium text-sm md:text-base truncate">kashish-sharma-240939322</p>
               </div>
-            </motion.a>
+            </a>
 
-            <motion.a 
+            <a 
               href="https://github.com/kshshrma" 
               target="_blank" 
               rel="noopener noreferrer" 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ scale: 1.03, x: 5 }}
-              whileTap={{ scale: 0.97 }}
-              className="glass-card p-6 flex items-center gap-6 hover:border-white/50 transition-colors group cursor-pointer block"
+              className="glass-card p-6 flex items-center gap-6 hover:border-[#ff2a2a]/30 bg-white/[0.01] transition-all group cursor-pointer block border border-white/10 rounded-2xl"
             >
-              <div className="w-14 h-14 bg-gray-500/20 rounded-full flex items-center justify-center text-gray-400 text-2xl group-hover:rotate-12 transition-transform">
+              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#ff2a2a] text-xl group-hover:bg-[#ff2a2a]/10 group-hover:border-[#ff2a2a] transition-all">
                 <FaGithub />
               </div>
               <div className="overflow-hidden">
-                <h3 className="text-gray-400 text-sm">GitHub</h3>
-                <p className="text-white font-medium md:text-lg text-sm truncate w-full">github.com/kshshrma</p>
+                <h5 className="text-gray-400 text-xs uppercase tracking-wider font-semibold">GitHub</h5>
+                <p className="text-white font-medium text-sm md:text-base truncate">github.com/kshshrma</p>
               </div>
-            </motion.a>
+            </a>
           </motion.div>
 
-          {/* Form */}
+          {/* Form (Right Column) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex-1 glass-card p-8"
+            className="flex-1 w-full glass-card p-8 border border-white/10 rounded-3xl bg-white/[0.01]"
           >
             <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="flex-1 space-y-2">
-                  <label className="text-sm text-gray-400 font-medium">Your Name</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs text-gray-400 font-bold uppercase tracking-wider">First Name</label>
                   <input 
                     type="text" 
                     required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" 
-                    placeholder="John Doe" 
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ff2a2a] focus:bg-white/[0.08] transition-all" 
+                    placeholder="John" 
                   />
                 </div>
-                <div className="flex-1 space-y-2">
-                  <label className="text-sm text-gray-400 font-medium">Your Email</label>
+                <div className="space-y-2">
+                  <label className="text-xs text-gray-400 font-bold uppercase tracking-wider">Last Name</label>
                   <input 
-                    type="email" 
+                    type="text" 
                     required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" 
-                    placeholder="john@example.com" 
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ff2a2a] focus:bg-white/[0.08] transition-all" 
+                    placeholder="Doe" 
                   />
                 </div>
               </div>
+              
               <div className="space-y-2">
-                <label className="text-sm text-gray-400 font-medium">Message</label>
+                <label className="text-xs text-gray-400 font-bold uppercase tracking-wider">Your Email</label>
+                <input 
+                  type="email" 
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ff2a2a] focus:bg-white/[0.08] transition-all" 
+                  placeholder="john@example.com" 
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs text-gray-400 font-bold uppercase tracking-wider">Message</label>
                 <textarea 
-                  rows={5} 
+                  rows={4} 
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none" 
-                  placeholder="Hello! I'd like to discuss..."
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ff2a2a] focus:bg-white/[0.08] transition-all resize-none" 
+                  placeholder="Hello! I'd like to discuss an opportunity..."
                 ></textarea>
               </div>
+
+              {/* Consent Checkbox */}
+              <div className="flex items-start gap-3">
+                <input 
+                  type="checkbox" 
+                  id="consent"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  required
+                  className="mt-1 h-4 w-4 rounded border-white/10 bg-white/5 text-[#ff2a2a] accent-[#ff2a2a] focus:ring-[#ff2a2a]"
+                />
+                <label htmlFor="consent" className="text-xs text-gray-400 leading-normal select-none">
+                  I consent to sending this information to get in touch regarding professional opportunities.
+                </label>
+              </div>
+
               <motion.button 
-                whileHover={{ scale: 1.02, boxShadow: "0px 0px 25px rgba(139,92,246,0.6)" }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02, boxShadow: "0px 4px 20px rgba(255, 42, 42, 0.4)" }}
+                whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-lg transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)]"
+                className="w-full bg-[#ff2a2a] hover:bg-[#ff4444] text-white font-bold py-4 rounded-xl transition-all shadow-lg text-sm uppercase tracking-wider cursor-pointer"
               >
                 Send Message
               </motion.button>
