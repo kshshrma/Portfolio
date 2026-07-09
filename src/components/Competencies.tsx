@@ -54,7 +54,7 @@ export default function Competencies() {
 
   return (
     <section id="competencies" className="py-24 relative overflow-hidden bg-black text-white border-t border-white/5">
-      <div className="absolute top-[50%] right-[-10%] w-[300px] h-[300px] bg-[#ff2a2a]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[50%] right-[-10%] w-[300px] h-[300px] bg-[#3b82f6]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <motion.div
@@ -64,11 +64,11 @@ export default function Competencies() {
           transition={{ duration: 0.6 }}
           className="text-left mb-16"
         >
-          <h2 className="text-sm font-bold uppercase tracking-wider text-[#ff2a2a] mb-2">07 . Soft Skills</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-blue-500 mb-2">07 . Soft Skills</h2>
           <h3 className="text-4xl md:text-5xl font-black text-white">
             Core <span className="text-gradient">Competencies</span>
           </h3>
-          <div className="w-12 h-1 bg-[#ff2a2a] mt-4 rounded-full"></div>
+          <div className="w-12 h-1 bg-blue-500 mt-4 rounded-full"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -80,10 +80,10 @@ export default function Competencies() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
               whileHover={{ y: -6 }}
-              className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] hover:border-[#ff2a2a]/20 transition-all flex flex-col justify-between cursor-pointer min-h-[180px] group"
+              className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] hover:border-blue-500/20 transition-all flex flex-col justify-between cursor-pointer min-h-[180px] group"
             >
               <div>
-                <span className="text-xs font-black text-[#ff2a2a] select-none block mb-3 opacity-60 group-hover:opacity-100 transition-opacity">
+                <span className="text-xs font-black text-blue-500 select-none block mb-3 opacity-60 group-hover:opacity-100 transition-opacity">
                   {comp.id} //
                 </span>
                 <h4 className="font-bold text-white text-base mb-2">{comp.title}</h4>

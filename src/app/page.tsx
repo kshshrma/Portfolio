@@ -16,7 +16,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main className="relative bg-transparent min-h-screen text-slate-50 selection:bg-[#ff2a2a]/30">
+    <main className="relative bg-transparent min-h-screen text-slate-50 selection:bg-blue-500/30">
       <TechBackground />
       <LayoutGroup>
         <Navbar />

@@ -21,7 +21,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 relative overflow-hidden bg-black text-white border-t border-white/5">
       {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl bg-[#ff2a2a]/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl bg-[#3b82f6]/5 rounded-full blur-[150px] pointer-events-none" />
       
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <motion.div
@@ -31,11 +31,11 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-left mb-16"
         >
-          <h2 className="text-sm font-bold uppercase tracking-wider text-[#ff2a2a] mb-2">08 . Connection</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-blue-500 mb-2">08 . Connection</h2>
           <h3 className="text-4xl md:text-5xl font-black text-white">
             Let's <span className="text-gradient">Connect</span>
           </h3>
-          <div className="w-12 h-1 bg-[#ff2a2a] mt-4 rounded-full"></div>
+          <div className="w-12 h-1 bg-blue-500 mt-4 rounded-full"></div>
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-12 items-start">
@@ -51,9 +51,9 @@ export default function Contact() {
             
             <a 
               href="mailto:ks2012150@gmail.com" 
-              className="glass-card p-6 flex items-center gap-6 hover:border-[#ff2a2a]/30 bg-white/[0.01] transition-all group cursor-pointer block border border-white/10 rounded-2xl"
+              className="glass-card p-6 flex items-center gap-6 hover:border-blue-500/30 bg-white/[0.01] transition-all group cursor-pointer block border border-white/10 rounded-2xl"
             >
-              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#ff2a2a] text-xl group-hover:bg-[#ff2a2a]/10 group-hover:border-[#ff2a2a] transition-all">
+              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-blue-500 text-xl group-hover:bg-blue-500/10 group-hover:border-blue-500 transition-all">
                 <FaEnvelope />
               </div>
               <div className="overflow-hidden">
@@ -66,9 +66,9 @@ export default function Contact() {
               href="https://www.linkedin.com/in/kashish-sharma-240939322/?skipRedirect=true" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="glass-card p-6 flex items-center gap-6 hover:border-[#ff2a2a]/30 bg-white/[0.01] transition-all group cursor-pointer block border border-white/10 rounded-2xl"
+              className="glass-card p-6 flex items-center gap-6 hover:border-blue-500/30 bg-white/[0.01] transition-all group cursor-pointer block border border-white/10 rounded-2xl"
             >
-              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#ff2a2a] text-xl group-hover:bg-[#ff2a2a]/10 group-hover:border-[#ff2a2a] transition-all">
+              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-blue-500 text-xl group-hover:bg-blue-500/10 group-hover:border-blue-500 transition-all">
                 <FaLinkedin />
               </div>
               <div className="overflow-hidden">
@@ -81,9 +81,9 @@ export default function Contact() {
               href="https://github.com/kshshrma" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="glass-card p-6 flex items-center gap-6 hover:border-[#ff2a2a]/30 bg-white/[0.01] transition-all group cursor-pointer block border border-white/10 rounded-2xl"
+              className="glass-card p-6 flex items-center gap-6 hover:border-blue-500/30 bg-white/[0.01] transition-all group cursor-pointer block border border-white/10 rounded-2xl"
             >
-              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#ff2a2a] text-xl group-hover:bg-[#ff2a2a]/10 group-hover:border-[#ff2a2a] transition-all">
+              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-blue-500 text-xl group-hover:bg-blue-500/10 group-hover:border-blue-500 transition-all">
                 <FaGithub />
               </div>
               <div className="overflow-hidden">
@@ -110,7 +110,7 @@ export default function Contact() {
                     required
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ff2a2a] focus:bg-white/[0.08] transition-all" 
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 focus:bg-white/[0.08] transition-all" 
                     placeholder="John" 
                   />
                 </div>
@@ -121,7 +121,7 @@ export default function Contact() {
                     required
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ff2a2a] focus:bg-white/[0.08] transition-all" 
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 focus:bg-white/[0.08] transition-all" 
                     placeholder="Doe" 
                   />
                 </div>
@@ -134,7 +134,7 @@ export default function Contact() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ff2a2a] focus:bg-white/[0.08] transition-all" 
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 focus:bg-white/[0.08] transition-all" 
                   placeholder="john@example.com" 
                 />
               </div>
@@ -146,7 +146,7 @@ export default function Contact() {
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ff2a2a] focus:bg-white/[0.08] transition-all resize-none" 
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 focus:bg-white/[0.08] transition-all resize-none" 
                   placeholder="Hello! I'd like to discuss an opportunity..."
                 ></textarea>
               </div>
@@ -159,7 +159,7 @@ export default function Contact() {
                   checked={consent}
                   onChange={(e) => setConsent(e.target.checked)}
                   required
-                  className="mt-1 h-4 w-4 rounded border-white/10 bg-white/5 text-[#ff2a2a] accent-[#ff2a2a] focus:ring-[#ff2a2a]"
+                  className="mt-1 h-4 w-4 rounded border-white/10 bg-white/5 text-blue-500 accent-blue-500 focus:ring-blue-500"
                 />
                 <label htmlFor="consent" className="text-xs text-gray-400 leading-normal select-none">
                   I consent to sending this information to get in touch regarding professional opportunities.
@@ -167,10 +167,10 @@ export default function Contact() {
               </div>
 
               <motion.button 
-                whileHover={{ scale: 1.02, boxShadow: "0px 4px 20px rgba(255, 42, 42, 0.4)" }}
+                whileHover={{ scale: 1.02, boxShadow: "0px 4px 20px rgba(37, 99, 235, 0.4)" }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-[#ff2a2a] hover:bg-[#ff4444] text-white font-bold py-4 rounded-xl transition-all shadow-lg text-sm uppercase tracking-wider cursor-pointer"
+                className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg text-sm uppercase tracking-wider cursor-pointer"
               >
                 Send Message
               </motion.button>
