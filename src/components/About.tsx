@@ -106,7 +106,9 @@ export default function About() {
                   }}
                   style={{ 
                     transformOrigin: "top center",
-                    transformStyle: "preserve-3d"
+                    transformStyle: "preserve-3d",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden"
                   }}
                   transition={rotateX === 0 && rotateY === 0 ? {
                     rotateZ: { repeat: Infinity, duration: 4, ease: "easeInOut" },
@@ -122,17 +124,8 @@ export default function About() {
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08)_0%,transparent_70%)] pointer-events-none" />
                   <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:100%_4px] opacity-25 pointer-events-none" />
 
-                  {/* ID Header */}
-                  <div className="flex justify-between items-center border-b border-blue-500/30 pb-2 mb-2 relative z-10">
-                    <div className="flex flex-col text-left">
-                      <span className="text-[10px] font-mono tracking-widest text-blue-400 font-bold">TECH ID BADGE</span>
-                      <span className="text-[7px] font-mono text-gray-500">SYSTEM ACCESS LEVEL: ROOT</span>
-                    </div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]" />
-                  </div>
-
                   {/* ID Photo Frame */}
-                  <div className="relative w-full h-[145px] rounded-xl overflow-hidden border border-blue-500/30 bg-black/80 flex items-center justify-center p-1 group z-10 shadow-inner">
+                  <div className="relative w-full h-[185px] rounded-xl overflow-hidden border border-blue-500/30 bg-black/80 flex items-center justify-center p-1 group z-10 shadow-inner">
                     {/* Corner accents */}
                     <div className="absolute top-1 left-1 w-2.5 h-2.5 border-t border-l border-blue-400" />
                     <div className="absolute top-1 right-1 w-2.5 h-2.5 border-t border-r border-blue-400" />
@@ -142,13 +135,20 @@ export default function About() {
                     {/* Scanline laser animation overlay */}
                     <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-80 animate-[scan_3s_linear_infinite] pointer-events-none" />
 
-                    <div className="relative w-full h-full rounded-lg overflow-hidden bg-neutral-900 flex items-center justify-center">
+                    <div className="relative w-full h-full rounded-lg overflow-hidden bg-neutral-900 flex items-center justify-center" style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
                       <Image 
-                        src="/avatar_full.png" 
+                        src="/Gemini_Generated_Image_tc37t9tc37t9tc37.png" 
                         alt="MD YUSUF" 
                         fill
-                        sizes="300px"
+                        sizes="(max-width: 768px) 300px, 600px"
+                        quality={95}
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        style={{ 
+                          objectPosition: 'center 10%',
+                          transform: 'translateZ(0)',
+                          backfaceVisibility: 'hidden',
+                          WebkitBackfaceVisibility: 'hidden'
+                        }}
                         priority
                       />
                     </div>
@@ -156,22 +156,22 @@ export default function About() {
 
                   {/* Tech Specs Block - Fast Facts */}
                   <div className="mt-3 flex flex-col gap-1.5 relative z-10">
-                    <div className="space-y-1 font-mono text-[12px] text-left">
+                    <div className="space-y-1 font-mono text-[13.5px] text-left">
                       <div className="flex justify-between border-b border-blue-500/15 pb-0.5">
-                        <span className="text-gray-500 uppercase tracking-widest text-[8px]">Role</span>
+                        <span className="text-gray-300 uppercase tracking-widest text-[9.5px]">Role</span>
                         <span className="text-white font-bold">SOFTWARE ENGINEER</span>
                       </div>
                       <div className="flex justify-between border-b border-blue-500/15 pb-0.5">
-                        <span className="text-gray-500 uppercase tracking-widest text-[8px]">Edu</span>
+                        <span className="text-gray-300 uppercase tracking-widest text-[9.5px]">Edu</span>
                         <span className="text-white font-bold">B.TECH CSE</span>
                       </div>
                       <div className="flex justify-between border-b border-blue-500/15 pb-0.5">
-                        <span className="text-gray-400 uppercase tracking-widest text-[8px]">Skills</span>
+                        <span className="text-gray-300 uppercase tracking-widest text-[9.5px]">Skills</span>
                         <span className="text-white font-bold">WEB/APP, DSA, AI</span>
                       </div>
                       <div className="flex justify-between pb-0.5">
-                        <span className="text-gray-500 uppercase tracking-widest text-[8px]">Focus</span>
-                        <span className="text-blue-400 font-bold">SCALABLE ARCH.</span>
+                        <span className="text-gray-300 uppercase tracking-widest text-[9.5px]">Focus</span>
+                        <span className="text-blue-300 font-bold">SCALABLE ARCH.</span>
                       </div>
                     </div>
                   </div>
