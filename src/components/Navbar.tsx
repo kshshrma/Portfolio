@@ -30,7 +30,7 @@ export default function Navbar() {
         transition={{ duration: 0.2 }}
         className="text-lg md:text-xl font-black text-white tracking-wider cursor-pointer select-none"
       >
-        Kashish Sharma<span className="text-[#ff2a2a]">.</span>
+        Kashish Sharma<span className="text-blue-500">.</span>
       </motion.a>
       
       <div className="hidden md:flex gap-4 items-center">
@@ -41,7 +41,7 @@ export default function Navbar() {
             className="relative px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 group"
           >
             {link.name}
-            <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+            <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
           </a>
         ))}
         <motion.a 
@@ -94,7 +94,7 @@ export default function Navbar() {
             <a 
               href="mailto:ks2012150@gmail.com?subject=Hiring Inquiry" 
               onClick={() => setIsOpen(false)}
-              className="mt-2 bg-[#ff2a2a] hover:bg-[#ff4444] text-white text-center px-6 py-3 rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(255,42,42,0.4)]"
+              className="mt-2 bg-blue-600 hover:bg-blue-500 text-white text-center px-6 py-3 rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]"
             >
               Hire Me
             </a>
