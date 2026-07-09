@@ -32,7 +32,7 @@ const Hexagon = ({ size, x, y, opacity, springX, springY, parallax }: any) => {
         height={size} 
         viewBox="0 0 100 100" 
         fill="currentColor"
-        className="text-[#ff2a2a]"
+        className="text-[#3b82f6]"
       >
         <polygon points="50 3 93 25 93 75 50 97 7 75 7 25" />
       </svg>
@@ -90,7 +90,7 @@ export default function TechBackground() {
           y: springY,
           translateX: "-50%",
           translateY: "-50%",
-          background: "radial-gradient(circle, rgba(255, 42, 42, 0.07) 0%, rgba(255, 42, 42, 0.02) 45%, transparent 70%)"
+          background: "radial-gradient(circle, rgba(59, 130, 246, 0.07) 0%, rgba(59, 130, 246, 0.02) 45%, transparent 70%)"
         }}
       />
 
@@ -100,8 +100,8 @@ export default function TechBackground() {
       ))}
       
       {/* Static Atmospheric Glows */}
-      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#ff2a2a]/5 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#ff2a2a]/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#3b82f6]/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#3b82f6]/5 rounded-full blur-[130px] pointer-events-none" />
     </div>
   );
 }

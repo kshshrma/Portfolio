@@ -63,13 +63,13 @@ export default function About() {
             className="flex-1 space-y-6 text-gray-300 text-base md:text-lg leading-relaxed"
           >
             <p>
-              Hello! My name is <strong className="text-white">MD YUSUF</strong>, an aspiring software engineer dedicated to crafting clean, functional, and highly scalable applications.
+              Hello! My name is <strong className="text-white">Kashish Sharma</strong>, a full stack developer and a computer science student passionate about building clean, functional, and highly scalable applications.
             </p>
             <p>
-              I am currently pursuing my B.Tech in Computer Science, specializing in modern web technologies, database management, and mobile app development. I enjoy tackling complex logic and improving my problem-solving abilities by consistently working through Data Structures and Algorithms.
+              I specialize in modern web technologies including React, Next.js, MERN Stack, and Python. I enjoy tackling complex backend challenges, structuring databases, and designing intuitive user interfaces that offer premium user experiences.
             </p>
             <p>
-              Beyond coding, I actively participate in hackathons and tech events, building and launching MVPs under tight timelines. I love collaborating with multi-functional teams to build products that solve real-world problems and offer intuitive, premium user experiences.
+              Beyond coding, I am constantly learning new frameworks, working on data structures and algorithms, and collaborating with developers to bring high-performance applications to life. Welcome to my portfolio!
             </p>
           </motion.div>
 
@@ -137,8 +137,8 @@ export default function About() {
 
                     <div className="relative w-full h-full rounded-lg overflow-hidden bg-neutral-900 flex items-center justify-center" style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
                       <Image 
-                        src="/Gemini_Generated_Image_tc37t9tc37t9tc37.png" 
-                        alt="MD YUSUF" 
+                        src="/avatar.jpg" 
+                        alt="Kashish Sharma" 
                         fill
                         sizes="(max-width: 768px) 300px, 600px"
                         quality={95}

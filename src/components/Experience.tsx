@@ -14,28 +14,28 @@ interface ExperienceItem {
 export default function Experience() {
   const experiences: ExperienceItem[] = [
     {
-      icon: <FaTrophy className="text-[#ff2a2a] text-lg" />,
+      icon: <FaTrophy className="text-[#3b82f6] text-lg" />,
       title: "Winner – Hackathon",
       organization: "IILM University",
       date: "Feb 2025",
       description: "Secured first place by architecting and developing an innovative web service prototype within a rigorous 24-hour time constraint, demonstrating strong technical execution and team coordination.",
     },
     {
-      icon: <FaTrophy className="text-[#ff2a2a] text-lg" />,
+      icon: <FaTrophy className="text-[#3b82f6] text-lg" />,
       title: "Second Runner-Up – Hackathon",
       organization: "Tula's Institute",
       date: "Sept 2025",
       description: "Participated and achieved the second runner-up position, successfully integrating complex APIs and presenting a robust software MVP to the evaluation panel.",
     },
     {
-      icon: <FaTrophy className="text-[#ff2a2a] text-lg" />,
+      icon: <FaTrophy className="text-[#3b82f6] text-lg" />,
       title: "Data Science Hackathon Participant",
       organization: "IIT Bhubaneswar - Pravaah'26",
       date: "2026",
       description: "Competed in an intense data science hackathon, applying classification machine learning models to solve real-world dataset problems and collaborating with fellow developers.",
     },
     {
-      icon: <FaCertificate className="text-[#ff2a2a] text-lg" />,
+      icon: <FaCertificate className="text-[#3b82f6] text-lg" />,
       title: "Multiple Hackathon Participations",
       organization: "Various Regional Tech Events",
       date: "2025 - Present",
@@ -46,7 +46,7 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 relative overflow-hidden bg-black text-white border-t border-white/5">
       {/* Ambient background glows */}
-      <div className="absolute top-[20%] left-[-10%] w-[300px] h-[300px] bg-[#ff2a2a]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[20%] left-[-10%] w-[300px] h-[300px] bg-[#3b82f6]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-4xl relative z-10">
         <motion.div
@@ -56,11 +56,11 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="text-left mb-16"
         >
-          <h2 className="text-sm font-bold uppercase tracking-wider text-[#ff2a2a] mb-2">05 . Milestones</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-blue-500 mb-2">05 . Milestones</h2>
           <h3 className="text-4xl md:text-5xl font-black text-white">
             Experience & <span className="text-gradient">Achievements</span>
           </h3>
-          <div className="w-12 h-1 bg-[#ff2a2a] mt-4 rounded-full"></div>
+          <div className="w-12 h-1 bg-blue-500 mt-4 rounded-full"></div>
         </motion.div>
 
         <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12">
@@ -74,18 +74,18 @@ export default function Experience() {
               className="relative pl-8 md:pl-10 group"
             >
               {/* Timeline dot with icon */}
-              <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border border-white/10 bg-black flex items-center justify-center group-hover:border-[#ff2a2a] group-hover:bg-[#ff2a2a]/10 transition-all duration-300">
+              <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border border-white/10 bg-black flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/10 transition-all duration-300">
                 {exp.icon}
               </div>
 
               {/* Card Container */}
-              <div className="glass-card p-6 md:p-8 border border-white/10 rounded-2xl bg-white/[0.01] group-hover:border-[#ff2a2a]/20 transition-all cursor-pointer">
+              <div className="glass-card p-6 md:p-8 border border-white/10 rounded-2xl bg-white/[0.01] group-hover:border-blue-500/20 transition-all cursor-pointer">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
                   <div>
-                    <h4 className="font-bold text-white text-xl group-hover:text-[#ff2a2a] transition-colors duration-300">
+                    <h4 className="font-bold text-white text-xl group-hover:text-blue-500 transition-colors duration-300">
                       {exp.title}
                     </h4>
-                    <span className="text-[#ff2a2a] text-sm font-medium">{exp.organization}</span>
+                    <span className="text-blue-500 text-sm font-medium">{exp.organization}</span>
                   </div>
                   <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-semibold w-fit uppercase tracking-wider">
                     {exp.date}

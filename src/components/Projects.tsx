@@ -64,8 +64,8 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 relative overflow-hidden bg-black text-white border-t border-white/5">
       {/* Visual Ambient Elements */}
-      <div className="absolute top-[10%] right-[-10%] w-[400px] h-[400px] bg-[#ff2a2a]/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] bg-[#ff2a2a]/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-[10%] right-[-10%] w-[400px] h-[400px] bg-[#3b82f6]/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] bg-[#3b82f6]/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <motion.div
@@ -75,11 +75,11 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-left mb-16"
         >
-          <h2 className="text-sm font-bold uppercase tracking-wider text-[#ff2a2a] mb-2">04 . Portfolio Showcase</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-blue-500 mb-2">04 . Portfolio Showcase</h2>
           <h3 className="text-4xl md:text-5xl font-black text-white">
             Featured <span className="text-gradient">Projects</span>
           </h3>
-          <div className="w-12 h-1 bg-[#ff2a2a] mt-4 rounded-full"></div>
+          <div className="w-12 h-1 bg-blue-500 mt-4 rounded-full"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -91,10 +91,10 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               whileHover={{ y: -8 }}
-              className="glass-card p-6 border border-white/10 rounded-3xl bg-white/[0.01] hover:border-[#ff2a2a]/30 transition-all flex flex-col justify-between cursor-pointer min-h-[350px] relative overflow-hidden group"
+              className="glass-card p-6 border border-white/10 rounded-3xl bg-white/[0.01] hover:border-blue-500/30 transition-all flex flex-col justify-between cursor-pointer min-h-[350px] relative overflow-hidden group"
             >
               {/* Card Corner Gradient Glow */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#ff2a2a]/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#3b82f6]/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               
               <div>
                 <div className="flex justify-between items-start mb-6">
@@ -106,7 +106,7 @@ export default function Projects() {
                   )}
                 </div>
 
-                <h4 className="font-bold text-white text-xl mb-3 tracking-wide group-hover:text-[#ff2a2a] transition-colors duration-300">
+                <h4 className="font-bold text-white text-xl mb-3 tracking-wide group-hover:text-blue-500 transition-colors duration-300">
                   {project.title}
                 </h4>
                 
@@ -132,7 +132,7 @@ export default function Projects() {
                     href={project.github} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex-1 flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:border-[#ff2a2a] hover:bg-[#ff2a2a]/10 hover:text-white py-2 rounded-xl transition-all text-gray-300 font-semibold text-xs uppercase tracking-wider"
+                    className="flex-1 flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:border-blue-500 hover:bg-blue-500/10 hover:text-white py-2 rounded-xl transition-all text-gray-300 font-semibold text-xs uppercase tracking-wider"
                   >
                     <FaGithub size={14} /> Source Code
                   </a>
@@ -141,7 +141,7 @@ export default function Projects() {
                       href={project.demo} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="flex-1 flex items-center justify-center gap-2 bg-[#ff2a2a] hover:bg-[#ff4444] text-white py-2 rounded-xl transition-all font-semibold text-xs uppercase tracking-wider shadow-[0_4px_12px_rgba(255,42,42,0.2)]"
+                      className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white py-2 rounded-xl transition-all font-semibold text-xs uppercase tracking-wider shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
                     >
                       <FaExternalLinkAlt size={12} /> Live Demo
                     </a>

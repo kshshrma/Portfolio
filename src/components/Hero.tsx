@@ -145,10 +145,10 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
         <div className="absolute left-[78%] top-[38%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-3 select-none pointer-events-none">
           <motion.button
             onClick={togglePlay}
-            whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(239, 68, 68, 0.6)" }}
+            whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)" }}
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-red-600 bg-red-600/10 flex items-center justify-center text-red-600 shadow-[0_0_20px_rgba(239,68,68,0.4)] cursor-pointer z-10 pointer-events-auto"
+            className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-blue-500 bg-blue-500/10 flex items-center justify-center text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] cursor-pointer z-10 pointer-events-auto"
             title="Play Reel"
           >
             <FaPlay size={22} className="translate-x-[2px] text-white" />
@@ -169,7 +169,7 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={stopPlayback}
-            className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-2 bg-black/80 hover:bg-red-600 text-white border border-white/10 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap"
+            className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-2 bg-black/80 hover:bg-blue-600 text-white border border-white/10 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap"
           >
             <FaStop size={10} /> Stop Reel
           </motion.button>
