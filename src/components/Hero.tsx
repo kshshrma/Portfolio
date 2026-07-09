@@ -140,7 +140,7 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
 
       </div>
 
-      {/* Large Custom Red Play Button positioned in the empty grey background space to the right of her face */}
+      {/* Large Custom Blue Play Button positioned in the empty grey background space to the right of her face */}
       {!isPlaying && (
         <div className="absolute left-[78%] top-[38%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-3 select-none pointer-events-none">
           <motion.button

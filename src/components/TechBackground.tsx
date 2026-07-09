@@ -82,7 +82,7 @@ export default function TechBackground() {
         }}
       />
       
-      {/* Interactive Cursor Gradient Glow (Red) */}
+      {/* Interactive Cursor Gradient Glow (Blue) */}
       <motion.div
         className="absolute w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none will-change-transform"
         style={{
