@@ -63,3 +63,13 @@ body {
   background-clip: text;
 }
 
+@keyframes scan {
+  0%, 100% {
+    top: 0%;
+  }
+  50% {
+    top: 100%;
+  }
+}
+
+
