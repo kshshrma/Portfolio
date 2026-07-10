@@ -21,12 +21,14 @@ export default function Skills() {
         { name: "Java", level: 85 },
         { name: "Python", level: 75 },
         { name: "JavaScript", level: 90 },
+        { name: "TypeScript", level: 85 },
       ],
     },
     {
       title: "Full Stack & Web",
       skills: [
-        { name: "React.js / Next.js", level: 88 },
+        { name: "React.js", level: 90 },
+        { name: "Next.js", level: 85 },
         { name: "HTML5", level: 95 },
         { name: "CSS3 / Tailwind", level: 92 },
         { name: "Node.js / Express", level: 85 },
@@ -37,8 +39,10 @@ export default function Skills() {
       skills: [
         { name: "Spring Boot", level: 80 },
         { name: "FastAPI", level: 75 },
-        { name: "REST APIs", level: 90 },
+        { name: "REST API Integration", level: 88 },
+        { name: "API Testing (Postman)", level: 85 },
         { name: "GraphQL", level: 70 },
+        { name: "Socket.io", level: 78 },
       ],
     },
     {
@@ -48,6 +52,7 @@ export default function Skills() {
         { name: "MySQL", level: 85 },
         { name: "PostgreSQL", level: 80 },
         { name: "Firebase", level: 80 },
+        { name: "Supabase", level: 82 },
       ],
     },
     {
@@ -56,7 +61,6 @@ export default function Skills() {
         { name: "Git & GitHub", level: 90 },
         { name: "VS Code", level: 95 },
         { name: "Postman", level: 88 },
-        { name: "n8n / Automation", level: 82 },
       ],
     },
     {
