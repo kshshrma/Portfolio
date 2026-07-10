@@ -17,6 +17,7 @@ export default function Skills() {
     {
       title: "Languages",
       skills: [
+        { name: "C", level: 82 },
         { name: "C++", level: 88 },
         { name: "Java", level: 85 },
         { name: "Python", level: 75 },
