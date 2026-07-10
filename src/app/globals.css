@@ -18,7 +18,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Glassmorphism utility */
+/* Glassmorphism utility with default styling and target lock on hover */
 .glass-card {
   position: relative;
   background: var(--glass-bg);
@@ -31,53 +31,69 @@ body {
   overflow: hidden;
 }
 
-/* Cybernetic corner bracket accents */
+/* Cybernetic corner bracket accents (always visible and pulsing slowly by default) */
 .glass-card::before,
 .glass-card::after {
   content: '';
   position: absolute;
   width: 12px;
   height: 12px;
-  border-color: transparent;
   border-style: solid;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-color: rgba(59, 130, 246, 0.22);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   z-index: 10;
+  animation: corner-pulse 3s ease-in-out infinite alternate;
 }
 
-/* Top-left corner */
+/* Top-left corner placement */
 .glass-card::before {
-  top: 10px;
-  left: 10px;
+  top: 11px;
+  left: 11px;
   border-width: 1.5px 0 0 1.5px;
 }
 
-/* Bottom-right corner */
+/* Bottom-right corner placement */
 .glass-card::after {
-  bottom: 10px;
-  right: 10px;
+  bottom: 11px;
+  right: 11px;
   border-width: 0 1.5px 1.5px 0;
+}
+
+/* Base corner pulse keyframes */
+@keyframes corner-pulse {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
 }
 
 .glass-card:hover {
   border-color: rgba(59, 130, 246, 0.3);
   background: rgba(59, 130, 246, 0.02);
-  box-shadow: 0 0 30px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 0 35px rgba(37, 99, 235, 0.12);
 }
 
+/* When hovered, they lock on tightly, freeze the pulsing, and glow bright blue! */
 .glass-card:hover::before {
+  animation: none;
   border-color: var(--accent-blue);
   top: 6px;
   left: 6px;
 }
 
 .glass-card:hover::after {
+  animation: none;
   border-color: var(--accent-blue);
   bottom: 6px;
   right: 6px;
 }
 
-/* Laser scan line overlay */
+/* Laser scan line overlay (runs slowly by default, speeds up and glows on hover) */
 .scan-line {
   position: absolute;
   top: 0;
@@ -85,18 +101,19 @@ body {
   width: 100%;
   height: 1.5px;
   background: linear-gradient(to right, transparent, var(--accent-blue), transparent);
-  opacity: 0;
+  opacity: 0.16;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: all 0.4s ease;
   z-index: 5;
+  animation: scan-anim-slow 8s linear infinite;
 }
 
 .glass-card:hover .scan-line {
-  opacity: 0.6;
-  animation: scan-anim 3s linear infinite;
+  opacity: 0.7;
+  animation: scan-anim-fast 2.5s linear infinite;
 }
 
-@keyframes scan-anim {
+@keyframes scan-anim-slow {
   0% {
     top: 0%;
   }
@@ -105,19 +122,35 @@ body {
   }
 }
 
-/* Procedural flow dashed lines in workflow section */
+@keyframes scan-anim-fast {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* Procedural flow dashed lines in workflow section (always flows slowly, speeds up on hover) */
 .flow-path {
   transition: all 0.4s ease;
+  animation: flow-dash-anim-slow 8s linear infinite;
 }
 
 #process:hover .flow-path {
-  stroke: rgba(59, 130, 246, 0.9) !important;
+  stroke: rgba(59, 130, 246, 0.95) !important;
   stroke-width: 2.5px !important;
-  animation: flow-dash-anim 1.5s linear infinite;
-  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.6));
+  animation: flow-dash-anim-fast 1.5s linear infinite !important;
+  filter: drop-shadow(0 0 7px rgba(59, 130, 246, 0.7));
 }
 
-@keyframes flow-dash-anim {
+@keyframes flow-dash-anim-slow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+@keyframes flow-dash-anim-fast {
   to {
     stroke-dashoffset: -28;
   }
