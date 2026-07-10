@@ -33,8 +33,10 @@ export default function Navbar() {
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 w-full z-50 px-6 md:px-16 transition-all duration-300 flex justify-between items-center ${
-        isScrolled ? "py-4 bg-black/20 backdrop-blur-md border-b border-white/5 shadow-lg" : "py-6 bg-transparent"
+      className={`fixed top-0 left-0 right-0 w-full z-50 px-6 md:px-16 transition-all duration-500 flex justify-between items-center border-b ${
+        isScrolled 
+          ? "py-4 bg-black/20 backdrop-blur-md border-white/5 shadow-lg shadow-black/10" 
+          : "py-6 bg-transparent border-transparent shadow-none"
       }`}
     >
       <motion.a
@@ -48,8 +50,10 @@ export default function Navbar() {
         Kashish Sharma<span className="text-blue-500">.</span>
       </motion.a>
       
-      <div className={`hidden md:flex gap-4 items-center transition-all duration-300 ${
-        isScrolled ? "px-4 py-1 bg-white/[0.01] backdrop-blur-md border border-white/10 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.4)]" : ""
+      <div className={`hidden md:flex gap-4 items-center transition-all duration-500 border rounded-full ${
+        isScrolled 
+          ? "px-4 py-1.5 bg-white/[0.01] backdrop-blur-md border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.4)]" 
+          : "px-4 py-1.5 bg-transparent border-transparent shadow-none"
       }`}>
         {navLinks.map((link) => (
           <a
