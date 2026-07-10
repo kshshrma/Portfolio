@@ -63,13 +63,13 @@ export default function About() {
             className="flex-1 space-y-6 text-gray-300 text-base md:text-lg leading-relaxed"
           >
             <p>
-              Hello! My name is <strong className="text-white">Kashish Sharma</strong>, a full stack developer and a computer science student passionate about building clean, functional, and highly scalable applications.
+              I’m <strong className="text-white">Kashish Sharma</strong>, a Computer Science Engineering student and aspiring Full Stack Developer passionate about building modern, user-focused web applications. I enjoy turning ideas into practical digital products using React.js, Node.js, Express.js, MongoDB, Supabase, and REST APIs.
             </p>
             <p>
-              I specialize in modern web technologies including React, Next.js, MERN Stack, and Python. I enjoy tackling complex backend challenges, structuring databases, and designing intuitive user interfaces that offer premium user experiences.
+              I have worked on projects involving authentication, dashboards, real-time features, AI-powered chatbots, and responsive mobile-first interfaces. My focus is on writing clean code, creating smooth user experiences, and building applications that solve real-world problems.
             </p>
             <p>
-              Beyond coding, I am constantly learning new frameworks, working on data structures and algorithms, and collaborating with developers to bring high-performance applications to life. Welcome to my portfolio!
+              Currently, I am strengthening my skills in full-stack development, API integration, database design, cloud deployment, and AI-powered web applications. I am especially interested in building impactful platforms such as community apps, cultural platforms, and animal-rescue technology solutions.
             </p>
           </motion.div>
 
