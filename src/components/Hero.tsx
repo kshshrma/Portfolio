@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPlay, FaStop, FaDownload } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPlay, FaStop, FaDownload, FaVolumeMute } from "react-icons/fa";
 
 interface HeroProps {
   isAboutInView?: boolean;
@@ -10,42 +10,27 @@ interface HeroProps {
 
 export default function Hero({ isAboutInView = false }: HeroProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const handleFirstInteraction = () => {
-      if (video) {
-        video.muted = false;
-        video.play().catch(e => console.log("Play on interaction failed:", e));
-      }
-      cleanup();
-    };
-
-    const cleanup = () => {
-      document.removeEventListener("click", handleFirstInteraction);
-      document.removeEventListener("touchstart", handleFirstInteraction);
-      document.removeEventListener("keydown", handleFirstInteraction);
-    };
-
     // Attempt unmuted play first
     video.muted = false;
-    video.play().catch((err) => {
-      console.log("Unmuted autoplay blocked, playing muted as fallback:", err);
-      video.muted = true;
-      video.play().then(() => {
-        // Unmute on the first interaction
-        document.addEventListener("click", handleFirstInteraction);
-        document.addEventListener("touchstart", handleFirstInteraction);
-        document.addEventListener("keydown", handleFirstInteraction);
-      }).catch((mutedErr) => {
-        console.log("Muted autoplay blocked:", mutedErr);
+    video.play()
+      .then(() => {
+        setIsMuted(false);
+      })
+      .catch((err) => {
+        console.log("Unmuted autoplay blocked, playing muted as fallback:", err);
+        video.muted = true;
+        setIsMuted(true);
+        video.play().catch((mutedErr) => {
+          console.log("Muted autoplay blocked:", mutedErr);
+        });
       });
-    });
-
-    return cleanup;
   }, []);
 
   const togglePlay = () => {
@@ -55,6 +40,7 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
     } else {
       // Unmute for explicit user playback
       videoRef.current.muted = false;
+      setIsMuted(false);
       // If the video has ended or is near the end, reset to start
       if (videoRef.current.ended || videoRef.current.currentTime >= videoRef.current.duration - 0.5) {
         videoRef.current.currentTime = 0;
@@ -65,11 +51,20 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
     }
   };
 
+  const unmuteVideo = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    videoRef.current.muted = false;
+    setIsMuted(false);
+    videoRef.current.play().catch((err) => console.log(err));
+  };
+
   const stopPlayback = () => {
     if (!videoRef.current) return;
     videoRef.current.pause();
     videoRef.current.currentTime = 0;
     setIsPlaying(false);
+    setIsMuted(true);
   };
 
   return (
@@ -84,7 +79,10 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
           preload="auto"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
-          onEnded={() => setIsPlaying(false)}
+          onEnded={() => {
+            setIsPlaying(false);
+            setIsMuted(true);
+          }}
           className="w-full h-full object-cover object-top md:object-right-top select-none pointer-events-none"
         />
         {/* Dark Vignette Overlay for Text Legibility */}
@@ -201,18 +199,32 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
         </div>
       </div>
 
-      {/* Floating Stop Button (visible only when playing) */}
+      {/* Floating Controls Bar (visible only when playing) */}
       <AnimatePresence>
         {isPlaying && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            onClick={stopPlayback}
-            className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-2 bg-black/80 hover:bg-blue-600 text-white border border-white/10 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap"
-          >
-            <FaStop size={10} /> Stop Reel
-          </motion.button>
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-3">
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              onClick={stopPlayback}
+              className="flex items-center gap-2 bg-black/80 hover:bg-blue-600 text-white border border-white/10 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap cursor-pointer"
+            >
+              <FaStop size={10} /> Stop Reel
+            </motion.button>
+
+            {isMuted && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                onClick={unmuteVideo}
+                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white border border-blue-400/20 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap cursor-pointer animate-pulse"
+              >
+                <FaVolumeMute size={12} /> Tap to Unmute
+              </motion.button>
+            )}
+          </div>
         )}
       </AnimatePresence>
 
