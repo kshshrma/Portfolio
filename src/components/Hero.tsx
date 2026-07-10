@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPlay, FaStop, FaDownload } from "react-icons/fa";
 
@@ -12,11 +12,26 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch((err) => {
+        console.log("Autoplay compliance blocked or postponed:", err);
+      });
+    }
+  }, []);
+
   const togglePlay = () => {
     if (!videoRef.current) return;
     if (isPlaying) {
       videoRef.current.pause();
     } else {
+      // Unmute for explicit user playback
+      videoRef.current.muted = false;
+      // If the video has ended or is near the end, reset to start
+      if (videoRef.current.ended || videoRef.current.currentTime >= videoRef.current.duration - 0.5) {
+        videoRef.current.currentTime = 0;
+      }
       videoRef.current.play().catch((err) => {
         console.error("Video play failed:", err);
       });
