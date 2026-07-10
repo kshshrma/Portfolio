@@ -66,10 +66,10 @@ export default function Navbar() {
           </a>
         ))}
         <motion.a 
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(59, 130, 246, 0.5)" }}
           whileTap={{ scale: 0.95 }}
           href="mailto:ks2012150@gmail.com?subject=Hiring Inquiry" 
-          className="ml-2 border border-white/20 hover:border-white text-white px-5 py-1.5 rounded-full text-xs font-bold transition-all bg-transparent"
+          className="ml-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.3)] border border-blue-400/20"
         >
           Hire Me
         </motion.a>
