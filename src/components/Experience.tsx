@@ -31,15 +31,8 @@ export default function Experience() {
       icon: <FaTrophy className="text-[#3b82f6] text-lg" />,
       title: "Data Science Hackathon Participant",
       organization: "IIT Bhubaneswar - Pravaah'26",
-      date: "2026",
+      date: "Feb 2026",
       description: "Competed in an intense data science hackathon, applying classification machine learning models to solve real-world dataset problems and collaborating with fellow developers.",
-    },
-    {
-      icon: <FaCertificate className="text-[#3b82f6] text-lg" />,
-      title: "Multiple Hackathon Participations",
-      organization: "Various Regional Tech Events",
-      date: "2025 - Present",
-      description: "Earned several achievements across regional and national hackathons, consistently designing and launching responsive products within short 24-48 hour hack sprints.",
     },
   ];
 
