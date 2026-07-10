@@ -50,12 +50,50 @@ export default function ActivitiesCertifications() {
   ];
 
   const certifications: CertificationItem[] = [
-    { title: "Oracle Cloud Infrastructure 2025 Associate", issuer: "Oracle" },
-    { title: "Programming in Java (Score: 94%)", issuer: "NPTEL" },
-    { title: "C Programming & Assembly Language", issuer: "NPTEL" },
-    { title: "Technology Job Simulation", issuer: "Deloitte" },
-    { title: "Career Edge – IT Primer", issuer: "TCS iON" },
-    { title: "Fundamentals of BI & Analytics", issuer: "Lumenore" },
+    {
+      title: "Applied Database Systems using Oracle AI Database",
+      issuer: "Oracle Academy",
+    },
+    {
+      title: "Participant - Data Science Hackathon, Pravaah'26",
+      issuer: "IIT Bhubaneswar",
+    },
+    {
+      title: "AWS Academy Graduate - Cloud Foundations",
+      issuer: "AWS Academy",
+    },
+    {
+      title: "Participant - INFUSION SUSTAIN-A-THON 2025",
+      issuer: "IEEE Student Chapter & Sharda School of CSE, Sharda University",
+    },
+    {
+      title: "2nd Runner-Up - Hack The Future 2.0 (National-Level Hackathon)",
+      issuer: "Tula's Institute, Dehradun",
+    },
+    {
+      title: "Participant - Internal Smart India Hackathon (SIH) 2025",
+      issuer: "Sharda School of CSE, Sharda University",
+    },
+    {
+      title: "Complete Full-Stack Web Development Bootcamp",
+      issuer: "Udemy (Dr. Angela Yu)",
+    },
+    {
+      title: "Participant - PIC 2025 Hackathon",
+      issuer: "Sharda University",
+    },
+    {
+      title: "React Mastery Workshop",
+      issuer: "GitHub Club, Technova at Sharda University",
+    },
+    {
+      title: "1st Position - Hackathon 2k25",
+      issuer: "IILM University, Greater Noida",
+    },
+    {
+      title: "Participant - 6th Technovation Hackathon",
+      issuer: "Sharda University, Greater Noida",
+    },
   ];
 
   return (
@@ -126,7 +164,7 @@ export default function ActivitiesCertifications() {
               Certifications
             </h4>
 
-            <div className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] space-y-4">
+            <div className="glass-card p-6 border border-blue-500/10 hover:border-blue-500/20 rounded-2xl bg-black/80 shadow-[0_0_20px_rgba(37,99,235,0.02)] transition-all duration-300 space-y-4 max-h-[520px] overflow-y-auto pr-3">
               {certifications.map((cert, index) => (
                 <div 
                   key={index}
