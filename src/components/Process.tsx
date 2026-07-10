@@ -56,25 +56,57 @@ export default function Process() {
           <div className="hidden lg:block absolute top-[55%] left-8 right-8 h-[2px] bg-gradient-to-r from-blue-500/0 via-blue-500/25 to-blue-500/0 border-t border-dashed border-blue-500/20 z-0 pointer-events-none" />
 
           {steps.map((step, idx) => (
-            <motion.div
-              key={step.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] hover:border-blue-500/30 transition-all flex flex-col justify-between group cursor-pointer min-h-[220px] z-10"
-            >
-              {/* Laser scan line overlay */}
-              <div className="scan-line" />
-              <div>
-                <span className="text-4xl font-black text-blue-500/20 group-hover:text-blue-500 transition-colors duration-300 select-none block mb-4">
-                  {step.num}
-                </span>
-                <h4 className="font-bold text-white text-lg mb-2">{step.title}</h4>
-                <p className="text-gray-400 text-xs md:text-sm leading-relaxed">{step.description}</p>
-              </div>
-            </motion.div>
+            <div key={step.num} className="relative z-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] hover:border-blue-500/30 transition-all flex flex-col justify-between group cursor-pointer min-h-[220px]"
+              >
+                {/* Laser scan line overlay */}
+                <div className="scan-line" />
+                <div>
+                  <span className="text-4xl font-black text-blue-500/20 group-hover:text-blue-500 transition-colors duration-300 select-none block mb-4">
+                    {step.num}
+                  </span>
+                  <h4 className="font-bold text-white text-lg mb-2">{step.title}</h4>
+                  <p className="text-gray-400 text-xs md:text-sm leading-relaxed">{step.description}</p>
+                </div>
+              </motion.div>
+
+              {/* Connecting Arrows */}
+              {idx < steps.length - 1 && (
+                <>
+                  {/* Desktop Right Arrow */}
+                  <div className="absolute top-1/2 -right-[20px] -translate-y-1/2 z-20 hidden lg:flex items-center justify-center">
+                    <motion.div
+                      animate={{ x: [-4, 4, -4] }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                      className="text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </motion.div>
+                  </div>
+
+                  {/* Mobile/Tablet Down Arrow */}
+                  <div className="absolute -bottom-[20px] left-1/2 -translate-x-1/2 z-20 flex lg:hidden items-center justify-center">
+                    <motion.div
+                      animate={{ y: [-4, 4, -4] }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                      className="text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                      </svg>
+                    </motion.div>
+                  </div>
+                </>
+              )}
+            </div>
           ))}
         </div>
       </div>
