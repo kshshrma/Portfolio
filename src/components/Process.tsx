@@ -104,18 +104,7 @@ export default function Process() {
               </motion.div>
             </div>
 
-            {/* Mobile Arrow 1-2 */}
-            <div className="flex lg:hidden justify-center my-4">
-              <motion.div 
-                animate={{ y: [-3, 3, -3] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-8 h-8 rounded-full bg-black border border-blue-500/30 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.4)]"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 rotate-90">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </motion.div>
-            </div>
+
 
             {/* Step 2: Design (Middle Left) */}
             <div className="lg:absolute lg:top-[260px] lg:left-0 w-full lg:w-[320px] z-10">
@@ -136,18 +125,7 @@ export default function Process() {
               </motion.div>
             </div>
 
-            {/* Mobile Arrow 2-3 */}
-            <div className="flex lg:hidden justify-center my-4">
-              <motion.div 
-                animate={{ y: [-3, 3, -3] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-8 h-8 rounded-full bg-black border border-blue-500/30 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.4)]"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 rotate-90">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </motion.div>
-            </div>
+
 
             {/* Step 3: Develop (Middle Right) */}
             <div className="lg:absolute lg:top-[520px] lg:right-0 w-full lg:w-[320px] z-10">
@@ -168,18 +146,7 @@ export default function Process() {
               </motion.div>
             </div>
 
-            {/* Mobile Arrow 3-4 */}
-            <div className="flex lg:hidden justify-center my-4">
-              <motion.div 
-                animate={{ y: [-3, 3, -3] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-8 h-8 rounded-full bg-black border border-blue-500/30 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.4)]"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 rotate-90">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </motion.div>
-            </div>
+
 
             {/* Step 4: Deploy (Bottom Left) */}
             <div className="lg:absolute lg:top-[780px] lg:left-0 w-full lg:w-[320px] z-10">
@@ -200,39 +167,7 @@ export default function Process() {
               </motion.div>
             </div>
 
-            {/* Desktop Circular Curved Connective Arrows */}
-            {/* Arrow 1: Research -> Design (flows down-left) */}
-            <motion.div 
-              animate={{ y: [-3, 3, -3] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="hidden lg:flex absolute top-[180px] left-[52%] -translate-x-1/2 w-9 h-9 rounded-full bg-black border border-blue-500/30 items-center justify-center text-blue-400 shadow-[0_0_12px_rgba(59,130,246,0.5)] z-20"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 rotate-[135deg]">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </motion.div>
 
-            {/* Arrow 2: Design -> Develop (flows down-right) */}
-            <motion.div 
-              animate={{ y: [-3, 3, -3] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 0.3 }}
-              className="hidden lg:flex absolute top-[445px] left-[48%] -translate-x-1/2 w-9 h-9 rounded-full bg-black border border-blue-500/30 items-center justify-center text-blue-400 shadow-[0_0_12px_rgba(59,130,246,0.5)] z-20"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 rotate-[45deg]">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </motion.div>
-
-            {/* Arrow 3: Develop -> Deploy (flows down-left) */}
-            <motion.div 
-              animate={{ y: [-3, 3, -3] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 0.6 }}
-              className="hidden lg:flex absolute top-[705px] left-[52%] -translate-x-1/2 w-9 h-9 rounded-full bg-black border border-blue-500/30 items-center justify-center text-blue-400 shadow-[0_0_12px_rgba(59,130,246,0.5)] z-20"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 rotate-[135deg]">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </motion.div>
 
           </div>
         </div>
