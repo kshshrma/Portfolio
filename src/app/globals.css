@@ -105,6 +105,27 @@ body {
   }
 }
 
+/* Procedural flow dashed lines in workflow section */
+.flow-path {
+  stroke: rgba(59, 130, 246, 0.4);
+  stroke-width: 2px;
+  stroke-dasharray: 8, 6;
+  transition: all 0.4s ease;
+}
+
+#process:hover .flow-path {
+  stroke: rgba(59, 130, 246, 0.85);
+  stroke-width: 2.5px;
+  animation: flow-dash-anim 1.5s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.5));
+}
+
+@keyframes flow-dash-anim {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

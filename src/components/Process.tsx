@@ -58,27 +58,21 @@ export default function Process() {
             <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
               {/* Path 1: Research (top-right) -> Design (middle-left) */}
               <path 
+                className="flow-path"
                 d="M 380,100 C 380,200 50,150 50,300" 
                 fill="none" 
-                stroke="rgba(59, 130, 246, 0.2)" 
-                strokeWidth="2" 
-                strokeDasharray="6,6"
               />
               {/* Path 2: Design (middle-left) -> Develop (middle-right) */}
               <path 
+                className="flow-path"
                 d="M 170,360 C 170,460 380,410 380,560" 
                 fill="none" 
-                stroke="rgba(59, 130, 246, 0.2)" 
-                strokeWidth="2" 
-                strokeDasharray="6,6"
               />
               {/* Path 3: Develop (middle-right) -> Deploy (bottom-left) */}
               <path 
+                className="flow-path"
                 d="M 380,620 C 380,720 50,670 50,820" 
                 fill="none" 
-                stroke="rgba(59, 130, 246, 0.2)" 
-                strokeWidth="2" 
-                strokeDasharray="6,6"
               />
             </svg>
 
