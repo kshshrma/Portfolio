@@ -35,7 +35,7 @@ export default function Experience() {
       title: "Second Runner-Up – Hackathon",
       organization: "Tulas University, Dehradun",
       date: "Sept 2025",
-      description: "Secured the Second Runner-Up position at Hack The Future 2.0, a prestigious National-Level Hackathon hosted by Tulas University, Dehradun, in September 2025.",
+      description: "Secured the Second Runner-Up position at Hack The Future 2.0, a prestigious National-Level Hackathon.",
     },
     {
       icon: <FaAward className="text-[#3b82f6] text-lg" />,
