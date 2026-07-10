@@ -21,7 +21,6 @@ export default function Projects() {
       description: "An enterprise-grade cultural e-commerce platform showcasing and representing Indian states, heritage, and regional crafts globally.",
       tech: ["React", "Next.js", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
       github: "https://github.com/kshshrma/BharatVerse",
-      status: "Demo Coming Soon",
     },
     {
       id: "02",
