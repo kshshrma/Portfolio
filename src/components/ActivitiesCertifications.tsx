@@ -112,6 +112,8 @@ export default function ActivitiesCertifications() {
                   key={index}
                   className="glass-card p-4 border border-white/10 rounded-xl bg-white/[0.01] flex items-center gap-4 hover:border-blue-500/20 transition-all"
                 >
+                  {/* Laser scan line overlay */}
+                  <div className="scan-line" />
                   <div className="p-3 bg-white/5 rounded-xl border border-white/10 shrink-0">
                     {act.icon}
                   </div>
@@ -141,6 +143,8 @@ export default function ActivitiesCertifications() {
             </h4>
 
             <div className="glass-card p-6 border border-blue-500/10 hover:border-blue-500/20 rounded-2xl bg-black/80 shadow-[0_0_20px_rgba(37,99,235,0.02)] transition-all duration-300 space-y-4 max-h-[520px] overflow-y-auto pr-3">
+              {/* Laser scan line overlay */}
+              <div className="scan-line" />
               {certifications.map((cert, index) => (
                 <div 
                   key={index}

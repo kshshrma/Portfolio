@@ -82,6 +82,8 @@ export default function Competencies() {
               whileHover={{ y: -6 }}
               className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] hover:border-blue-500/20 transition-all flex flex-col justify-between cursor-pointer min-h-[180px] group"
             >
+              {/* Laser scan line overlay */}
+              <div className="scan-line" />
               <div>
                 <span className="text-xs font-black text-blue-500 select-none block mb-3 opacity-60 group-hover:opacity-100 transition-opacity">
                   {comp.id} //

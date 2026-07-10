@@ -146,6 +146,8 @@ export default function Skills() {
               transition={{ duration: 0.5, delay: catIdx * 0.1 }}
               className="glass-card p-6 border border-blue-500/10 hover:border-blue-500/30 rounded-2xl bg-black/80 shadow-[0_0_20px_rgba(37,99,235,0.02)] hover:shadow-[0_0_25px_rgba(37,99,235,0.08)] transition-all duration-300"
             >
+              {/* Laser scan line overlay */}
+              <div className="scan-line" />
               <h4 className="font-bold text-white text-lg mb-6 border-b border-blue-500/20 pb-2 flex items-center justify-between">
                 <span>{category.title}</span>
                 <span className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)] animate-pulse"></span>

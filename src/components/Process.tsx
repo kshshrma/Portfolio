@@ -51,7 +51,10 @@ export default function Process() {
           <div className="w-12 h-1 bg-blue-500 mt-4 rounded-full"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          {/* Horizontal timeline connector */}
+          <div className="hidden lg:block absolute top-[55%] left-8 right-8 h-[2px] bg-gradient-to-r from-blue-500/0 via-blue-500/25 to-blue-500/0 border-t border-dashed border-blue-500/20 z-0 pointer-events-none" />
+
           {steps.map((step, idx) => (
             <motion.div
               key={step.num}
@@ -60,8 +63,10 @@ export default function Process() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ y: -8 }}
-              className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] hover:border-blue-500/30 transition-all flex flex-col justify-between group cursor-pointer min-h-[220px]"
+              className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] hover:border-blue-500/30 transition-all flex flex-col justify-between group cursor-pointer min-h-[220px] z-10"
             >
+              {/* Laser scan line overlay */}
+              <div className="scan-line" />
               <div>
                 <span className="text-4xl font-black text-blue-500/20 group-hover:text-blue-500 transition-colors duration-300 select-none block mb-4">
                   {step.num}

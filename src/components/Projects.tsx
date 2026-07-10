@@ -93,6 +93,8 @@ export default function Projects() {
             >
               {/* Card Corner Gradient Glow */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-[#3b82f6]/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              {/* Laser scan line overlay */}
+              <div className="scan-line" />
               
               <div>
                 <div className="flex justify-between items-start mb-6">

@@ -56,7 +56,7 @@ export default function Experience() {
           <div className="w-12 h-1 bg-blue-500 mt-4 rounded-full"></div>
         </motion.div>
 
-        <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12">
+        <div className="relative border-l border-blue-500/20 ml-4 md:ml-6 space-y-12">
           {experiences.map((exp, idx) => (
             <motion.div
               key={idx}
@@ -67,12 +67,14 @@ export default function Experience() {
               className="relative pl-8 md:pl-10 group"
             >
               {/* Timeline dot with icon */}
-              <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border border-white/10 bg-black flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/10 transition-all duration-300">
+              <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border border-blue-500/20 bg-black flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 group-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] transition-all duration-300">
                 {exp.icon}
               </div>
 
               {/* Card Container */}
               <div className="glass-card p-6 md:p-8 border border-white/10 rounded-2xl bg-white/[0.01] group-hover:border-blue-500/20 transition-all cursor-pointer">
+                {/* Laser scan line overlay */}
+                <div className="scan-line" />
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
                   <div>
                     <h4 className="font-bold text-white text-xl group-hover:text-blue-500 transition-colors duration-300">
