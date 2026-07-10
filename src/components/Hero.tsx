@@ -126,7 +126,7 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
             <motion.a 
               whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.08)" }}
               whileTap={{ scale: 0.98 }}
-              href="/resume.pdf" 
+              href="/kashishSharma.pdf" 
               download
               className="border-2 border-white/20 px-5 py-2.5 rounded-full font-bold text-xs md:text-sm text-white bg-transparent transition-all flex items-center gap-1.5"
             >
