@@ -17,7 +17,7 @@ export default function Experience() {
       icon: <FaBriefcase className="text-[#3b82f6] text-lg" />,
       title: "Full Stack Web Developer Intern",
       organization: "THIRANEX",
-      date: "May - July 2025",
+      date: "May - July 2026",
       description: "Worked on MERN stack applications, implemented authentication and REST APIs, and collaborated using Git/GitHub on real-world development tasks.",
     }
   ];
