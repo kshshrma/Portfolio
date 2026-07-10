@@ -119,7 +119,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="p-4 rounded-2xl glass-card bg-black/95 backdrop-blur-xl border border-white/10 flex flex-col gap-2 shadow-[0_0_30px_rgba(0,0,0,0.9)] overflow-hidden"
+              className="p-4 rounded-2xl bg-black/95 backdrop-blur-xl border border-white/10 flex flex-col gap-2 shadow-[0_0_30px_rgba(0,0,0,0.9)] overflow-hidden"
             >
               {navLinks.map((link) => (
                 <a
