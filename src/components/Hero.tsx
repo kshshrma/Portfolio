@@ -13,12 +13,39 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch((err) => {
-        console.log("Autoplay compliance blocked or postponed:", err);
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleFirstInteraction = () => {
+      if (video) {
+        video.muted = false;
+        video.play().catch(e => console.log("Play on interaction failed:", e));
+      }
+      cleanup();
+    };
+
+    const cleanup = () => {
+      document.removeEventListener("click", handleFirstInteraction);
+      document.removeEventListener("touchstart", handleFirstInteraction);
+      document.removeEventListener("keydown", handleFirstInteraction);
+    };
+
+    // Attempt unmuted play first
+    video.muted = false;
+    video.play().catch((err) => {
+      console.log("Unmuted autoplay blocked, playing muted as fallback:", err);
+      video.muted = true;
+      video.play().then(() => {
+        // Unmute on the first interaction
+        document.addEventListener("click", handleFirstInteraction);
+        document.addEventListener("touchstart", handleFirstInteraction);
+        document.addEventListener("keydown", handleFirstInteraction);
+      }).catch((mutedErr) => {
+        console.log("Muted autoplay blocked:", mutedErr);
       });
-    }
+    });
+
+    return cleanup;
   }, []);
 
   const togglePlay = () => {
