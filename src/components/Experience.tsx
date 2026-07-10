@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaTrophy, FaCertificate } from "react-icons/fa";
+import { FaTrophy, FaBriefcase, FaAward } from "react-icons/fa";
 
-interface ExperienceItem {
+interface MilestoneItem {
   icon: React.ReactNode;
   title: string;
   organization: string;
@@ -12,7 +12,17 @@ interface ExperienceItem {
 }
 
 export default function Experience() {
-  const experiences: ExperienceItem[] = [
+  const experienceItems: MilestoneItem[] = [
+    {
+      icon: <FaBriefcase className="text-[#3b82f6] text-lg" />,
+      title: "Full Stack Web Developer Intern",
+      organization: "THIRANEX IT Solutions",
+      date: "June 2025 - Present",
+      description: "Worked on MERN stack applications, implemented authentication and REST APIs, and collaborated using Git/GitHub on real-world development tasks.",
+    }
+  ];
+
+  const achievementItems: MilestoneItem[] = [
     {
       icon: <FaTrophy className="text-[#3b82f6] text-lg" />,
       title: "Winner – Hackathon",
@@ -23,16 +33,16 @@ export default function Experience() {
     {
       icon: <FaTrophy className="text-[#3b82f6] text-lg" />,
       title: "Second Runner-Up – Hackathon",
-      organization: "Tula's Institute",
+      organization: "Tulas University, Dehradun",
       date: "Sept 2025",
-      description: "Participated and achieved the second runner-up position, successfully integrating complex APIs and presenting a robust software MVP to the evaluation panel.",
+      description: "Secured the Second Runner-Up position at Hack The Future 2.0, a prestigious National-Level Hackathon hosted by Tulas University, Dehradun, in September 2025.",
     },
     {
-      icon: <FaTrophy className="text-[#3b82f6] text-lg" />,
-      title: "Data Science Hackathon Participant",
-      organization: "IIT Bhubaneswar - Pravaah'26",
+      icon: <FaAward className="text-[#3b82f6] text-lg" />,
+      title: "Specially Invited Participant – Data Science Hackathon",
+      organization: "IIT Bhubaneswar",
       date: "Feb 2026",
-      description: "Competed in an intense data science hackathon, applying classification machine learning models to solve real-world dataset problems and collaborating with fellow developers.",
+      description: "Invited to participate based on the team's victory in the previous edition, to which I contributed as a team member.",
     },
   ];
 
@@ -41,7 +51,7 @@ export default function Experience() {
       {/* Ambient background glows */}
       <div className="absolute top-[20%] left-[-10%] w-[300px] h-[300px] bg-[#3b82f6]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 max-w-4xl relative z-10">
+      <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,43 +66,104 @@ export default function Experience() {
           <div className="w-12 h-1 bg-blue-500 mt-4 rounded-full"></div>
         </motion.div>
 
-        <div className="relative border-l border-blue-500/20 ml-4 md:ml-6 space-y-12">
-          {experiences.map((exp, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="relative pl-8 md:pl-10 group"
-            >
-              {/* Timeline dot with icon */}
-              <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border border-blue-500/20 bg-black flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 group-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] transition-all duration-300">
-                {exp.icon}
-              </div>
-
-              {/* Card Container */}
-              <div className="glass-card p-6 md:p-8 border border-white/10 rounded-2xl bg-white/[0.01] group-hover:border-blue-500/20 transition-all cursor-pointer">
-                {/* Laser scan line overlay */}
-                <div className="scan-line" />
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
-                  <div>
-                    <h4 className="font-bold text-white text-xl group-hover:text-blue-500 transition-colors duration-300">
-                      {exp.title}
-                    </h4>
-                    <span className="text-blue-500 text-sm font-medium">{exp.organization}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Left Column: Work Experience */}
+          <div>
+            <h4 className="text-xl font-extrabold text-white mb-8 flex items-center gap-3 tracking-wide">
+              <span className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
+                <FaBriefcase className="text-blue-500 text-sm" />
+              </span>
+              WORK EXPERIENCE
+            </h4>
+            
+            <div className="relative border-l border-blue-500/20 ml-4 md:ml-6 space-y-12">
+              {experienceItems.map((exp, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="relative pl-8 md:pl-10 group"
+                >
+                  {/* Timeline dot with icon */}
+                  <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border border-blue-500/20 bg-black flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 group-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] transition-all duration-300">
+                    {exp.icon}
                   </div>
-                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-semibold w-fit uppercase tracking-wider">
-                    {exp.date}
-                  </span>
-                </div>
-                
-                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                  {exp.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+
+                  {/* Card Container */}
+                  <div className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] group-hover:border-blue-500/20 transition-all cursor-pointer">
+                    {/* Laser scan line overlay */}
+                    <div className="scan-line" />
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
+                      <div>
+                        <h5 className="font-bold text-white text-lg group-hover:text-blue-500 transition-colors duration-300">
+                          {exp.title}
+                        </h5>
+                        <span className="text-blue-500 text-sm font-medium">{exp.organization}</span>
+                      </div>
+                      <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-semibold w-fit uppercase tracking-wider shrink-0">
+                        {exp.date}
+                      </span>
+                    </div>
+                    
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      {exp.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column: Achievements */}
+          <div>
+            <h4 className="text-xl font-extrabold text-white mb-8 flex items-center gap-3 tracking-wide">
+              <span className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
+                <FaTrophy className="text-blue-500 text-sm" />
+              </span>
+              ACHIEVEMENTS & HACKATHONS
+            </h4>
+            
+            <div className="relative border-l border-blue-500/20 ml-4 md:ml-6 space-y-12">
+              {achievementItems.map((ach, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="relative pl-8 md:pl-10 group"
+                >
+                  {/* Timeline dot with icon */}
+                  <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border border-blue-500/20 bg-black flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 group-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] transition-all duration-300">
+                    {ach.icon}
+                  </div>
+
+                  {/* Card Container */}
+                  <div className="glass-card p-6 border border-white/10 rounded-2xl bg-white/[0.01] group-hover:border-blue-500/20 transition-all cursor-pointer">
+                    {/* Laser scan line overlay */}
+                    <div className="scan-line" />
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
+                      <div>
+                        <h5 className="font-bold text-white text-lg group-hover:text-blue-500 transition-colors duration-300">
+                          {ach.title}
+                        </h5>
+                        <span className="text-blue-500 text-sm font-medium">{ach.organization}</span>
+                      </div>
+                      <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-semibold w-fit uppercase tracking-wider shrink-0">
+                        {ach.date}
+                      </span>
+                    </div>
+                    
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      {ach.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
