@@ -31,7 +31,7 @@ export default function ActivitiesCertifications() {
     },
     {
       icon: <FaAward className="text-[#3b82f6]" />,
-      role: "NCC Freshers’ Host",
+      role: "NCC Orientation Programme Host",
       org: "NCC Orientation Anchor - Briefed Freshers on NCC Activities and Opportunities (Leadership)",
       category: "PUBLIC SPEAKING",
     },

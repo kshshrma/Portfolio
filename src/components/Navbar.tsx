@@ -79,47 +79,65 @@ export default function Navbar() {
       <motion.button 
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/5 text-white z-50 border border-white/10"
+        className="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-full bg-white/5 text-white z-50 border border-white/10 relative gap-[5px] focus:outline-none"
+        aria-label="Toggle menu"
       >
-        {isOpen ? (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        )}
+        <motion.span
+          animate={{
+            rotate: isOpen ? 45 : 0,
+            y: isOpen ? 7 : 0,
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="w-5 h-[2px] bg-white rounded-full"
+        />
+        <motion.span
+          animate={{
+            opacity: isOpen ? 0 : 1,
+            scale: isOpen ? 0.5 : 1,
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="w-5 h-[2px] bg-white rounded-full"
+        />
+        <motion.span
+          animate={{
+            rotate: isOpen ? -45 : 0,
+            y: isOpen ? -7 : 0,
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="w-5 h-[2px] bg-white rounded-full"
+        />
       </motion.button>
       
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-[120%] left-6 right-6 p-4 rounded-2xl glass-card bg-black/95 backdrop-blur-xl border border-white/10 md:hidden flex flex-col gap-2 shadow-[0_0_30px_rgba(0,0,0,0.9)] overflow-hidden"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-3 text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all"
-              >
-                {link.name}
-              </a>
-            ))}
-            <a 
-              href="mailto:ks2012150@gmail.com?subject=Hiring Inquiry" 
-              onClick={() => setIsOpen(false)}
-              className="mt-2 bg-blue-600 hover:bg-blue-500 text-white text-center px-6 py-3 rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+          <div className="absolute top-[120%] left-6 right-6 z-40 md:hidden">
+            <motion.div
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="p-4 rounded-2xl glass-card bg-black/95 backdrop-blur-xl border border-white/10 flex flex-col gap-2 shadow-[0_0_30px_rgba(0,0,0,0.9)] overflow-hidden"
             >
-              Hire Me
-            </a>
-          </motion.div>
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-3 text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <a 
+                href="mailto:ks2012150@gmail.com?subject=Hiring Inquiry" 
+                onClick={() => setIsOpen(false)}
+                className="mt-2 bg-blue-600 hover:bg-blue-500 text-white text-center px-6 py-3 rounded-xl font-bold transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+              >
+                Hire Me
+              </a>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </motion.nav>

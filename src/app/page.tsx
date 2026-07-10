@@ -65,7 +65,7 @@ export default function Home() {
           </div>
           <div className="border-t border-white/5 mt-8 pt-8 text-center text-xs text-gray-600">
             <p>© {new Date().getFullYear()} Kashish Sharma. All rights reserved.</p>
-            <p className="mt-1">Replica Portfolio built with React, Next.js, and Framer Motion.</p>
+            <p className="mt-1">Built with React, Next.js, Tailwind CSS, and Framer Motion.</p>
           </div>
         </footer>
       </LayoutGroup>

@@ -37,7 +37,7 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
       <div className="absolute inset-0 z-0 select-none">
         <video
           ref={videoRef}
-          src="/avatar_background_video.mp4"
+          src="/avatar_background_video.mp4#t=0.001"
           playsInline
           preload="auto"
           onPlay={() => setIsPlaying(true)}
@@ -135,31 +135,29 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
           </div>
         </motion.div>
 
-        {/* Right Column: Empty space for background visualization */}
-        <div className="flex-1 w-full h-[250px] md:h-[400px] pointer-events-none" />
+        {/* Right Column: Empty space for background visualization and Play Reel button */}
+        <div className="flex-1 w-full h-[200px] md:h-[400px] mt-8 md:mt-0 relative flex items-center justify-center pointer-events-none">
+          {!isPlaying && (
+            <div className="flex flex-col items-center gap-3 select-none pointer-events-none">
+              <motion.button
+                onClick={togglePlay}
+                whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)" }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-blue-500 bg-blue-500/10 flex items-center justify-center text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] cursor-pointer z-10 pointer-events-auto"
+                title="Play Reel"
+              >
+                <FaPlay size={22} className="translate-x-[2px] text-white" />
+              </motion.button>
 
-      </div>
-
-      {/* Large Custom Blue Play Button positioned in the empty grey background space to the right of her face */}
-      {!isPlaying && (
-        <div className="absolute left-[78%] top-[38%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-3 select-none pointer-events-none">
-          <motion.button
-            onClick={togglePlay}
-            whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)" }}
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-blue-500 bg-blue-500/10 flex items-center justify-center text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] cursor-pointer z-10 pointer-events-auto"
-            title="Play Reel"
-          >
-            <FaPlay size={22} className="translate-x-[2px] text-white" />
-          </motion.button>
-
-          {/* PLAY REEL text below the button */}
-          <span className="text-[10px] md:text-[12px] text-white font-extrabold tracking-widest uppercase z-10 pointer-events-none drop-shadow-md">
-            PLAY REEL
-          </span>
+              {/* PLAY REEL text below the button */}
+              <span className="text-[10px] md:text-[12px] text-white font-extrabold tracking-widest uppercase z-10 pointer-events-none drop-shadow-md">
+                PLAY REEL
+              </span>
+            </div>
+          )}
         </div>
-      )}
+      </div>
 
       {/* Floating Stop Button (visible only when playing) */}
       <AnimatePresence>
