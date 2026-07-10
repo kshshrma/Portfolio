@@ -35,6 +35,12 @@ export default function ActivitiesCertifications() {
       org: "NCC Orientation Anchor - Briefed Freshers on NCC Activities and Opportunities (Leadership)",
       category: "PUBLIC SPEAKING",
     },
+    {
+      icon: <FaAward className="text-[#3b82f6]" />,
+      role: "Company Senior",
+      org: "NCC Camp - Managed responsibility of the entire company of 90 cadets (Leadership)",
+      category: "CAMP LEADERSHIP",
+    },
   ];
 
   const certifications: CertificationItem[] = [
