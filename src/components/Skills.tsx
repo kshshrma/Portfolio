@@ -68,6 +68,46 @@ export default function Skills() {
         { name: "OOP", level: 90 },
       ],
     },
+    {
+      title: "Cloud, Deployment & DevOps",
+      skills: [
+        { name: "Vercel", level: 85 },
+        { name: "Render", level: 80 },
+        { name: "Environment Variables / .env", level: 85 },
+        { name: "Deployment & Hosting", level: 82 },
+        { name: "CI/CD Basics", level: 70 },
+      ],
+    },
+    {
+      title: "Authentication & Security",
+      skills: [
+        { name: "JWT Authentication", level: 88 },
+        { name: "Supabase Auth", level: 85 },
+        { name: "bcrypt Password Hashing", level: 82 },
+        { name: "Role-Based Access Control", level: 78 },
+        { name: "API Security Basics", level: 75 },
+      ],
+    },
+    {
+      title: "AI Integration",
+      skills: [
+        { name: "Groq API", level: 85 },
+        { name: "Gemini API", level: 80 },
+        { name: "Chatbot Integration", level: 88 },
+        { name: "Prompt Engineering", level: 82 },
+        { name: "NLP Basics", level: 75 },
+      ],
+    },
+    {
+      title: "Mobile & UI/UX",
+      skills: [
+        { name: "Responsive Design", level: 90 },
+        { name: "Tailwind CSS", level: 92 },
+        { name: "Framer Motion", level: 80 },
+        { name: "Figma", level: 75 },
+        { name: "Mobile-First Design", level: 85 },
+      ],
+    },
   ];
 
   return (
