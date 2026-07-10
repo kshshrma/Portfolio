@@ -55,20 +55,12 @@ export default function ActivitiesCertifications() {
       issuer: "Oracle Academy",
     },
     {
-      title: "Participant - Data Science Hackathon, Pravaah'26",
-      issuer: "IIT Bhubaneswar",
-    },
-    {
       title: "AWS Academy Graduate - Cloud Foundations",
       issuer: "AWS Academy",
     },
     {
       title: "Participant - INFUSION SUSTAIN-A-THON 2025",
       issuer: "IEEE Student Chapter & Sharda School of CSE, Sharda University",
-    },
-    {
-      title: "2nd Runner-Up - Hack The Future 2.0 (National-Level Hackathon)",
-      issuer: "Tula's Institute, Dehradun",
     },
     {
       title: "Participant - Internal Smart India Hackathon (SIH) 2025",
@@ -85,10 +77,6 @@ export default function ActivitiesCertifications() {
     {
       title: "React Mastery Workshop",
       issuer: "GitHub Club, Technova at Sharda University",
-    },
-    {
-      title: "1st Position - Hackathon 2k25",
-      issuer: "IILM University, Greater Noida",
     },
     {
       title: "Participant - 6th Technovation Hackathon",
