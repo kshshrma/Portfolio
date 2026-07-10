@@ -19,33 +19,21 @@ export default function ActivitiesCertifications() {
   const activities: ActivityItem[] = [
     {
       icon: <FaUsers className="text-[#3b82f6]" />,
-      role: "Social Media Coordinator",
-      org: "IEEE Madhya Pradesh Section (Volunteer)",
-      category: "Media Coordinator",
-    },
-    {
-      icon: <FaAward className="text-[#3b82f6]" />,
-      role: "Team Coordinator",
-      org: "Go-Kart International Racing 2K25 (Leadership)",
-      category: "Management",
-    },
-    {
-      icon: <FaGraduationCap className="text-[#3b82f6]" />,
-      role: "Bootcamp Graduate",
-      org: "5-Day MOE IDE Bootcamp, IIT Roorkee (Innovation)",
-      category: "Innovation",
-    },
-    {
-      icon: <FaAward className="text-[#3b82f6]" />,
-      role: "Hackathon Organizer",
-      org: "Hosted INFORIA Tech Summit (Co-Curricular)",
-      category: "Coordination",
+      role: "Technical Event Coordinator",
+      org: "Hosted Technical Event at Sharda University (Leadership)",
+      category: "EVENT MANAGEMENT",
     },
     {
       icon: <FaMicrophone className="text-[#3b82f6]" />,
-      role: "Stage Anchor & Coordinator",
-      org: "Event Management - INFORIA 2K25 (Public Speaking)",
-      category: "Public Speaking",
+      role: "Stage Host & Team Coordinator",
+      org: "Technical Event, Sharda University (Public Speaking)",
+      category: "COORDINATION",
+    },
+    {
+      icon: <FaAward className="text-[#3b82f6]" />,
+      role: "NCC Freshers’ Host",
+      org: "NCC Orientation Anchor - Briefed Freshers on NCC Activities and Opportunities (Leadership)",
+      category: "PUBLIC SPEAKING",
     },
   ];
 
@@ -166,21 +154,6 @@ export default function ActivitiesCertifications() {
                 </div>
               ))}
             </div>
-
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="pt-4"
-            >
-              <a
-                href="https://drive.google.com/file/d/1ObdGWtVSx8SsfR4AcbCySSd9LFXcAs9f/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:border-blue-500 hover:bg-blue-500/10 text-white font-bold py-3.5 rounded-xl transition-all text-sm tracking-wide shadow-lg"
-              >
-                <FaExternalLinkAlt size={12} /> View All Certificates
-              </a>
-            </motion.div>
           </motion.div>
         </div>
       </div>
