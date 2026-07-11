@@ -19,16 +19,52 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
 
     // Force muted property to be true on the DOM element (crucial for iOS Safari / React hydration quirk)
     video.muted = true;
+    video.defaultMuted = true;
     setIsMuted(true);
 
-    // Attempt to play muted on mount
-    video.play()
-      .then(() => {
-        setIsPlaying(true);
-      })
-      .catch((err) => {
-        console.log("Muted autoplay failed/blocked (e.g. Low Power Mode):", err);
-      });
+    let playAttempted = false;
+    const attemptPlay = () => {
+      if (playAttempted) return;
+
+      video.play()
+        .then(() => {
+          playAttempted = true;
+          setIsPlaying(true);
+          cleanup();
+        })
+        .catch((err) => {
+          console.log("Autoplay attempt failed, waiting for user interaction:", err);
+        });
+    };
+
+    // Attempt immediately on mount
+    attemptPlay();
+
+    // Also attempt when video metadata is loaded or ready to play
+    video.addEventListener("canplay", attemptPlay);
+    video.addEventListener("loadedmetadata", attemptPlay);
+
+    // Safari iOS fallback: attempt play on first touch, scroll, or click
+    const handleInteraction = () => {
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+      }
+      attemptPlay();
+    };
+
+    const cleanup = () => {
+      video.removeEventListener("canplay", attemptPlay);
+      video.removeEventListener("loadedmetadata", attemptPlay);
+      window.removeEventListener("touchstart", handleInteraction);
+      window.removeEventListener("click", handleInteraction);
+      window.removeEventListener("scroll", handleInteraction);
+    };
+
+    window.addEventListener("touchstart", handleInteraction, { passive: true });
+    window.addEventListener("click", handleInteraction, { passive: true });
+    window.addEventListener("scroll", handleInteraction, { passive: true });
+
+    return cleanup;
   }, []);
 
   const togglePlay = () => {
@@ -72,7 +108,7 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
       <div className="absolute inset-0 z-0 select-none">
         <video
           ref={videoRef}
-          src="/avatar_background_video.mp4#t=0.001"
+          src="/avatar_background_video.mp4"
           autoPlay
           muted
           playsInline
@@ -175,58 +211,51 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
           </div>
         </motion.div>
 
-        {/* Right Column: Empty space for background visualization and Play Reel button */}
-        <div className="flex-1 w-full h-[200px] md:h-[400px] mt-8 md:mt-0 relative flex items-center justify-center pointer-events-none">
-          {!isPlaying && (
-            <div className="flex flex-col items-center gap-3 select-none pointer-events-none">
-              <motion.button
-                onClick={togglePlay}
-                whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)" }}
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-blue-500 bg-blue-500/10 flex items-center justify-center text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] cursor-pointer z-10 pointer-events-auto"
-                title="Play Reel"
-              >
-                <FaPlay size={22} className="translate-x-[2px] text-white" />
-              </motion.button>
-
-              {/* PLAY REEL text below the button */}
-              <span className="text-[10px] md:text-[12px] text-white font-extrabold tracking-widest uppercase z-10 pointer-events-none drop-shadow-md">
-                PLAY REEL
-              </span>
-            </div>
-          )}
-        </div>
+        {/* Right Column: Empty space for background visualization */}
+        <div className="flex-1 w-full h-[200px] md:h-[400px] mt-8 md:mt-0 relative flex items-center justify-center pointer-events-none" />
       </div>
 
-      {/* Floating Controls Bar (visible only when playing) */}
-      <AnimatePresence>
-        {isPlaying && (
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-3">
+      {/* Floating Controls Bar */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-3">
+        <AnimatePresence mode="wait">
+          {!isPlaying ? (
             <motion.button
+              key="play-btn"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              onClick={stopPlayback}
-              className="flex items-center gap-2 bg-black/80 hover:bg-blue-600 text-white border border-white/10 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap cursor-pointer"
+              onClick={togglePlay}
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white border border-blue-400/20 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap cursor-pointer"
             >
-              <FaStop size={10} /> Stop Reel
+              <FaPlay size={10} /> Play Reel
             </motion.button>
-
-            {isMuted && (
-              <motion.button
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                onClick={unmuteVideo}
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white border border-blue-400/20 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap cursor-pointer animate-pulse"
+          ) : (
+            <motion.div
+              key="playing-controls"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              className="flex items-center gap-3"
+            >
+              <button
+                onClick={stopPlayback}
+                className="flex items-center gap-2 bg-black/80 hover:bg-blue-600 text-white border border-white/10 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap cursor-pointer"
               >
-                <FaVolumeMute size={12} /> Tap to Unmute
-              </motion.button>
-            )}
-          </div>
-        )}
-      </AnimatePresence>
+                <FaStop size={10} /> Stop Reel
+              </button>
+
+              {isMuted && (
+                <button
+                  onClick={unmuteVideo}
+                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white border border-blue-400/20 px-5 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all backdrop-blur-md whitespace-nowrap cursor-pointer animate-pulse"
+                >
+                  <FaVolumeMute size={12} /> Tap to Unmute
+                </button>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
     </section>
   );
