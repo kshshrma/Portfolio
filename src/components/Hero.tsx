@@ -17,19 +17,17 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
     const video = videoRef.current;
     if (!video) return;
 
-    // Attempt unmuted play first
-    video.muted = false;
+    // Force muted property to be true on the DOM element (crucial for iOS Safari / React hydration quirk)
+    video.muted = true;
+    setIsMuted(true);
+
+    // Attempt to play muted on mount
     video.play()
       .then(() => {
-        setIsMuted(false);
+        setIsPlaying(true);
       })
       .catch((err) => {
-        console.log("Unmuted autoplay blocked, playing muted as fallback:", err);
-        video.muted = true;
-        setIsMuted(true);
-        video.play().catch((mutedErr) => {
-          console.log("Muted autoplay blocked:", mutedErr);
-        });
+        console.log("Muted autoplay failed/blocked (e.g. Low Power Mode):", err);
       });
   }, []);
 
@@ -75,6 +73,8 @@ export default function Hero({ isAboutInView = false }: HeroProps) {
         <video
           ref={videoRef}
           src="/avatar_background_video.mp4#t=0.001"
+          autoPlay
+          muted
           playsInline
           preload="auto"
           onPlay={() => setIsPlaying(true)}
